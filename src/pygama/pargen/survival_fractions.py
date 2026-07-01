@@ -557,7 +557,9 @@ def get_survival_fraction(
     guess_pars_surv = copy.deepcopy(pars)
 
     # add update guess here for n_sig and n_bkg
-    guess_pars_surv = update_guess(func, guess_pars_surv, energy[(~nan_idxs) & (pass_idxs)])
+    guess_pars_surv = update_guess(
+        func, guess_pars_surv, energy[(~nan_idxs) & (pass_idxs)]
+    )
 
     parguess = {
         "x_lo": pars["x_lo"],
