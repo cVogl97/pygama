@@ -527,8 +527,8 @@ def get_survival_fraction(
     # enforce fit_range on the data that enters the likelihood by folding it into
     # data_mask, so both the passing and failing selections below are restricted
     # to the fit window.
+    data_mask = np.asarray(data_mask, dtype=bool)
     data_mask = data_mask & (energy >= fit_range[0]) & (energy <= fit_range[1])
-
     nan_idxs = np.isnan(cut_param)
     if high_cut is not None:
         passing_cut = (cut_param > cut_val) & (cut_param < high_cut)

@@ -2595,9 +2595,10 @@ def unbinned_staged_energy_fit(
     if gof_range is None:
         gof_range = fit_range
 
+    energy = np.asarray(energy)
+
     # enforce fit_range on the data that enters the likelihood. This also drops NaNs.
     energy = energy[(energy >= fit_range[0]) & (energy <= fit_range[1])]
-
     if bin_width is None:
         init_bin_width = (
             2
