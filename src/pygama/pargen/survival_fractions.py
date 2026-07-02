@@ -789,6 +789,7 @@ def compton_sf(
     if data_mask is None:
         data_mask = np.full(len(cut_param), True, dtype=bool)
 
+    data_mask = np.asarray(data_mask, dtype=bool)
     if np.sum(data_mask) == 0:
         msg = "data_mask selects zero events; cannot compute survival fraction"
         raise ValueError(msg)
