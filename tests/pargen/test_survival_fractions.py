@@ -15,8 +15,12 @@ def test_compton_sf_data_mask_restricts_population():
     diluting the survival fraction.
     """
     # First four events are inside the mask; three of them pass (>0).
-    cut_param = np.array([5.0, 5.0, 5.0, -5.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0])
-    data_mask = np.array([True, True, True, True, False, False, False, False, False, False])
+    cut_param = np.array(
+        [5.0, 5.0, 5.0, -5.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0]
+    )
+    data_mask = np.array(
+        [True, True, True, True, False, False, False, False, False, False]
+    )
 
     result = compton_sf(cut_param, low_cut_val=0.0, mode="greater", data_mask=data_mask)
 
